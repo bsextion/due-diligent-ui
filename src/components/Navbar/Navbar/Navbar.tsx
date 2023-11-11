@@ -25,12 +25,12 @@ const Navbar: React.FC<NavbarProps> = () => {
           </div>
         )}
         <div className='flex justify-end px-12 w-1/3'>
-        <button className='p-2'>
-            <HiMenu className='text-white'/>
-          </button>
-          <button className='p-2'>
-            <CgProfile />
-          </button>
+        <div className='p-2'>
+            <HiMenu className='text-white' size={35}/>
+          </div>
+          <div className='p-2'>
+            <img src='./avatar.png' className='h-9 '/>
+          </div>
         </div>
       </div>
     </nav>

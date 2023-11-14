@@ -21,19 +21,22 @@ const Navbar: React.FC<NavbarProps> = () => {
             width={150}
           />
         </Link>
-        {user && (
+        {isLoggedIn && (
           <div className='flex flex-1 justify-center items-center w-1/3 h-12 text-lg'>
             {welcomeMessage}
           </div>
         )}
         <div className='flex justify-end px-12 w-1/3'>
-          <div className='pt-3 px-1'>
-            <AiOutlineMenu className='text-white' size={33} />
-          </div>
-          <div className='p-2'>
-            <img src='./avatar.png' className='h-9 ' />
-          </div>
-
+          {isLoggedIn && (
+            <div>
+              <div className='pt-3 px-1'>
+                <AiOutlineMenu className='text-white' size={33} />
+              </div>
+              <div className='p-2'>
+                <img src='./avatar.png' className='h-9 ' />
+              </div>
+            </div>
+          )}
           {isLoggedIn ? (
             <Link href='./' className='p-2'>
               <BiLogOut size={33} />

@@ -5,7 +5,7 @@ isOpen: boolean;
 type: 'login' | 'register' | 'reset'
 }
 
-const initialAuthModalState: AuthModalState = {
+export const initialAuthModalState: AuthModalState = {
     isOpen: false,
     type: 'login'
 }

@@ -10,4 +10,4 @@ const initialAuthModalState: AuthModalState = {
     type: 'login'
 }
 
-export const authModalContext = createContext<AuthModalState>(initialAuthModalState);
+export const AuthModalContext = createContext<AuthModalState>(initialAuthModalState);

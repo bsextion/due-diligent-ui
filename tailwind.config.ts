@@ -8,6 +8,7 @@ const config: Config = {
   ],
   safelist: [
     'rounded-t-lg',
+    'border-b-2',
     'pr-2',
     'text-left',
     'px-1',

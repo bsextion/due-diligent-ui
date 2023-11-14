@@ -7,6 +7,7 @@ type NavbarProps = {};
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [user, setUser] = React.useState(null);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const welcomeMessage = `Welcome, ${user}`;
   return (
     <nav className='flex w-full bg-brand-blue text-white px-2 items-center h-14'>
@@ -26,15 +27,22 @@ const Navbar: React.FC<NavbarProps> = () => {
           </div>
         )}
         <div className='flex justify-end px-12 w-1/3'>
-        <div className='pt-3 px-1'>
-            <AiOutlineMenu className='text-white' size={33}/>
+          <div className='pt-3 px-1'>
+            <AiOutlineMenu className='text-white' size={33} />
           </div>
           <div className='p-2'>
-            <img src='./avatar.png' className='h-9 '/>
+            <img src='./avatar.png' className='h-9 ' />
           </div>
+
+          {isLoggedIn ? (
             <Link href='./' className='p-2'>
-            <BiLogOut size={33}/>
+              <BiLogOut size={33} />
             </Link>
+          ) : (
+            <button className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
+              Login
+            </button>
+          )}
         </div>
       </div>
     </nav>

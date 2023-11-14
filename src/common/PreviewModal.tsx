@@ -13,16 +13,16 @@ const PreviewModal: React.FC<PreviewModalProps> = ({ title, bills }) => {
         {title}
       </div>
 
-      <table className='bg-light-gray-1 w-full'>
-        <thead className=''>
+      <table className='bg-light-gray-1 w-full '>
+        <thead className='border-b-2'>
           <tr className='w-full'>
-            <th scope='1' className='text-left py-3 w-0 font-medium'>
+            <th scope='1' className='text-left w-0 font-medium'>
               Name
             </th>
-            <th scope='1' className='text-left py-3 w-0 font-medium'>
+            <th scope='1' className='text-left w-0 font-medium'>
               Amount
             </th>
-            <th scope='1' className='text-left py-3 font-medium'>
+            <th scope='1' className='text-left font-medium'>
               Due
             </th>
           </tr>

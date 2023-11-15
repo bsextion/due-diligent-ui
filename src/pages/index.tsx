@@ -5,7 +5,6 @@ import { bills } from '@/utils/mockdata/bills';
 import { Bill } from '@/common/constants/types/Bill';
 import {
   AuthModalContext,
-  initialAuthModalState,
 } from '@/common/constants/types/AuthModalContext';
 import { useEffect, useState } from 'react';
 import router, { useRouter } from 'next/router';

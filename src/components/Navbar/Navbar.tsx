@@ -1,5 +1,6 @@
+import { AuthModalContext } from '@/common/constants/types/AuthModalContext';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BiLogOut } from 'react-icons/bi';
 
@@ -9,6 +10,8 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [user, setUser] = React.useState(null);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const welcomeMessage = `Welcome, ${user}`;
+  const { isOpen, type, toggleType, toggleOpen } = useContext(AuthModalContext); //use custom hook to call backend
+
   return (
     <nav className='flex w-full bg-brand-blue text-white px-2 items-center h-14'>
       <div className='flex justify-between items-center w-full'>
@@ -42,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = () => {
               <BiLogOut size={33} />
             </Link>
           ) : (
-            <button className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
+            <button onClick={toggleOpen} className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
               Login
             </button>
           )}

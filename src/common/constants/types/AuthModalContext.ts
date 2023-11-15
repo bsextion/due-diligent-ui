@@ -1,13 +1,11 @@
 import { createContext } from "react";
 
-type AuthModalState = {
+export type AuthModalState = {
 isOpen: boolean;
-type: 'login' | 'register' | 'reset'
+type: 'login' | 'register' | 'reset';
+toggleType: () => void;
+toggleOpen: () => void;
 }
 
-export const initialAuthModalState: AuthModalState = {
-    isOpen: false,
-    type: 'login'
-}
 
-export const AuthModalContext = createContext<AuthModalState>(initialAuthModalState);
+export const AuthModalContext = createContext<AuthModalState>({} as AuthModalState);

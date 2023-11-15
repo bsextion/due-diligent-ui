@@ -10,9 +10,9 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [user, setUser] = React.useState(null);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const welcomeMessage = `Welcome, ${user}`;
-  const { isOpen, type, toggleType, toggleOpen } = useContext(AuthModalContext); //use custom hook to call backend
+  const {toggleOpen } = useContext(AuthModalContext); //use custom hook to call backend
 
-  const isOpenHandler = () => {
+  const handleClick = () => {
     toggleOpen();
   }
 
@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = () => {
               <BiLogOut size={33} />
             </Link>
           ) : (
-            <button onClick={isOpenHandler} className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
+            <button onClick={handleClick} className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
               Login
             </button>
           )}

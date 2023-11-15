@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [type, setType] = useState<'login' | 'register' | 'reset'>('login');
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleType = () => { }
   const toggleOpen = () => {setIsOpen(prev => !prev)};

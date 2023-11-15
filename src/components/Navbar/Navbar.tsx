@@ -12,6 +12,10 @@ const Navbar: React.FC<NavbarProps> = () => {
   const welcomeMessage = `Welcome, ${user}`;
   const { isOpen, type, toggleType, toggleOpen } = useContext(AuthModalContext); //use custom hook to call backend
 
+  const isOpenHandler = () => {
+    toggleOpen();
+  }
+
   return (
     <nav className='flex w-full bg-brand-blue text-white px-2 items-center h-14'>
       <div className='flex justify-between items-center w-full'>
@@ -45,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = () => {
               <BiLogOut size={33} />
             </Link>
           ) : (
-            <button onClick={toggleOpen} className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
+            <button onClick={isOpenHandler} className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
               Login
             </button>
           )}

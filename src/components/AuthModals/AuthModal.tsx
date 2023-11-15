@@ -1,12 +1,18 @@
 import { AuthModalContext } from '@/common/constants/types/AuthModalContext';
 import React, { useContext, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
+import Login from './Login';
+import Register from './Register';
+import ResetPassword from './ResetPassword';
 type AuthModalProps = {};
 
 const AuthModal: React.FC<AuthModalProps> = () => {
   const [user, setUser] = useState(false); //use custom hook to call backend
   const { isOpen, type, toggleType, toggleOpen } = useContext(AuthModalContext); //use custom hook to call backend
 
+  const isOpenHandler = () => {
+    toggleOpen();
+  }
   return (
     <div>
       {isOpen && (
@@ -17,10 +23,17 @@ const AuthModal: React.FC<AuthModalProps> = () => {
          mx-6'
             >
               <div className='flex flex-column justify-end w-full h-5 p-2 '>
-                <button onClick={toggleOpen}>
+                <button onClick={isOpenHandler}>
                   <IoMdClose size={22} className='text-light-gray-1' />
                 </button>
               </div>
+              {type === 'login' ? (
+                <Login />
+              ) : type === 'register' ? (
+                <Register />
+              ) : (
+                <ResetPassword />
+              )}
             </div>
           </div>
         </div>

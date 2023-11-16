@@ -34,7 +34,7 @@ import { IoMdClose } from 'react-icons/io';
                 {type === 'login' ? (
                   <Login changeTypeHandler={changeTypeHandler}/>
                 ) : type === 'register' ? (
-                  <Register />
+                  <Register changeTypeHandler={changeTypeHandler}/>
                 ) : (
                   <ResetPassword />
                 )}

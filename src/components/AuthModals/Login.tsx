@@ -1,4 +1,5 @@
 import { AuthModalState } from "@/common/constants/types/AuthModalContext";
+import { User } from "@/common/constants/types/User";
 import React from "react";
 
 type LoginProps = {
@@ -6,6 +7,28 @@ type LoginProps = {
 };
 
 const Login: React.FC<LoginProps> = ({ changeTypeHandler }) => {
+  const [userData, setUserData] = React.useState<{ email: string, password: string }>({
+    email: "",
+    password: "",
+  });
+
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (userData.email === "" || userData.password === "") {
+        alert("Please enter a valid email and password");
+      return;
+    }
+    console.log("user", userData);
+  };
+
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserData((prev) => ({
+        ...prev, [e.target.name]: e.target.value
+    }));
+    console.log(userData);
+  };
+
+
   return (
     <div className="">
       <form className="min-h-min text-center text-white m-1">
@@ -15,6 +38,7 @@ const Login: React.FC<LoginProps> = ({ changeTypeHandler }) => {
             Enter Email:
           </label>
           <input
+          onChange={inputChangeHandler}
             className="bg-light-blue-2 rounded"
             type="email"
             name="email"
@@ -26,14 +50,15 @@ const Login: React.FC<LoginProps> = ({ changeTypeHandler }) => {
             Enter Password:
           </label>
           <input
+          onChange={inputChangeHandler}
             className="bg-light-blue-2 rounded"
-            type="email"
-            name="email"
-            id="email"
+            type="password"
+            name="password"
+            id="password"
           ></input>
         </div>
-        <div className="flex flex-row justify-start my-9 px-5 w-full">
-          <button onClick={() => changeTypeHandler('login')} className="border rounded-md w-2/5 bg-brand-blue " >Log in</button>
+        <div className="flex flex-row justify-start my-8 px-5 w-full">
+          <button onClick={() => changeTypeHandler('login')} type='submit' className="border rounded-md w-2/5 bg-brand-blue " >Log in</button>
         </div>
         <div className="flex flex-row justify-end my-1 pr-4 w-full">
           <a

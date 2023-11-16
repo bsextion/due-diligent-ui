@@ -1,28 +1,33 @@
-import {
-  AuthModalContext, AuthModalState,
-} from '@/common/constants/types/AuthModalContext';
+import { AuthModalContext, AuthModalType } from '@/common/constants/AuthModalContext';
 import Navbar from '@/components/Navbar/Navbar';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useState } from 'react';
+import React
+ from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [type, setType] = useState<'login' | 'register' | 'reset'>('login');
-  const [isOpen, setIsOpen] = useState(false);
+  const [type, setType] = useState<AuthModalType['type']>('login');
+  const [isOpen, setIsOpen] = useState(true);
 
-  const toggleType = () => { }
-  const toggleOpen = () => {setIsOpen(prev => !prev)};
-   
-      const authInitialState: AuthModalState = {
-        type,
-        isOpen,
-        toggleType,
-        toggleOpen,
-      };
-     
+  const toggleType = (type: AuthModalType['type']) => {
+    setType((prev) => type)
+    console.log('type ', type)
+  };
+  const toggleOpen = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const authInitialState: AuthModalType = {
+    type,
+    isOpen,
+    toggleType,
+    toggleOpen,
+  };
+
+
   return (
-    <>
       <AuthModalContext.Provider value={authInitialState}>
         <Head>
           <title>Due-Diligent</title>
@@ -36,6 +41,5 @@ export default function App({ Component, pageProps }: AppProps) {
         <Navbar />
         <Component {...pageProps} />
       </AuthModalContext.Provider>
-    </>
   );
 }

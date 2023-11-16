@@ -1,13 +1,9 @@
-import Navbar from '@/components/Navbar/Navbar';
+
 import CalendarCanvas from '@/components/Calendar/CalendarCanvas';
 import PreviewModal from '@/common/PreviewModal';
 import { bills } from '@/utils/mockdata/bills';
 import { Bill } from '@/common/constants/types/Bill';
-import {
-  AuthModalContext,
-} from '@/common/constants/types/AuthModalContext';
-import { useEffect, useState } from 'react';
-import router, { useRouter } from 'next/router';
+import React from 'react';
 
 export default function Home() {
   const billsData: Bill[] = bills;

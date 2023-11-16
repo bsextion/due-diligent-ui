@@ -1,4 +1,4 @@
-import { AuthModalContext } from '@/common/constants/types/AuthModalContext';
+import { AuthModalContext } from '../../common/constants/AuthModalContext';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
@@ -10,11 +10,12 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [user, setUser] = React.useState(null);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const welcomeMessage = `Welcome, ${user}`;
-  const {toggleOpen } = useContext(AuthModalContext); //use custom hook to call backend
+  const {toggleOpen } = useContext(AuthModalContext);
 
-  const handleClick = () => {
+  const closeHandler = () => {
     toggleOpen();
-  }
+  };
+
 
   return (
     <nav className='flex w-full bg-brand-blue text-white px-2 items-center h-14'>
@@ -34,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           </div>
         )}
         <div className='flex justify-end px-12 w-1/3'>
-          {isLoggedIn && (
+          {isLoggedIn && ( 
             <div>
               <div className='pt-3 px-1'>
                 <AiOutlineMenu className='text-white' size={33} />
@@ -49,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = () => {
               <BiLogOut size={33} />
             </Link>
           ) : (
-            <button onClick={handleClick} className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
+            <button onClick={closeHandler} className='m-2 bg-dark-blue-1 w-24 rounded-lg'>
               Login
             </button>
           )}
